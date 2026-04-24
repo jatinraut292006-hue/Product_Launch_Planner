@@ -2,8 +2,6 @@ import os
 import base64
 from dotenv import load_dotenv
 import google.generativeai as genai
-from PIL import Image
-import io
 
 load_dotenv()
 
@@ -29,9 +27,7 @@ def generate_marketing_image(visual_description, product_name):
     
     response = model.generate_content(
         contents=prompt,
-        generation_config=genai.GenerationConfig(
-            response_modalities=["image", "text"]
-        )
+        generation_config={"response_modalities": ["image", "text"]}
     )
     
     for part in response.candidates[0].content.parts:
