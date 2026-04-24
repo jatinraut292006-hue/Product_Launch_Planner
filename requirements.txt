@@ -5,5 +5,4 @@ tavily-python
 python-dotenv
 google-generativeai
 litellm
-groq
-ollama
+tiktoken==0.7.0
