@@ -29,7 +29,7 @@ def create_seo_agent():
         hashtags, and search terms that will make the product discoverable online. 
         Your output directly improves the quality of marketing copy and campaigns.""",
         tools=[tavily_tool],
-        llm="gemini/gemini-2.5-flash-preview-04-17",
+        llm="gemini/gemini-2.5-flash-lite",
         verbose=True,
         allow_delegation=False
     )
