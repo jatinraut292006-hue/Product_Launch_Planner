@@ -24,7 +24,7 @@ def generate_marketing_image(visual_description, product_name):
     """
     
     response = client.models.generate_images(
-        model="imagen-3.0-generate-002",
+        model="imagen-3.0-fast-generate-001",
         prompt=prompt,
         config=genai.types.GenerateImagesConfig(
             number_of_images=1,
