@@ -384,12 +384,12 @@ with col1:
     product_name = st.text_input(
         "Product Name",
         placeholder="e.g. TaskFlow",
-        key="product_name"
+        key="input_product_name"
     )
     target_market = st.text_input(
         "Target Market",
         placeholder="e.g. Remote teams in tech startups",
-        key="target_market"
+        key="input_target_market"
     )
 
 with col2:
@@ -397,7 +397,7 @@ with col2:
         "Product Description",
         placeholder="e.g. A productivity app that helps remote teams manage tasks and deadlines in real time",
         height=130,
-        key="product_description"
+        key="input_product_description"
     )
 
 st.markdown("<br>", unsafe_allow_html=True)
