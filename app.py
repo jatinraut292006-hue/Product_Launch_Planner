@@ -1,6 +1,7 @@
 import streamlit as st
 from crew import run_crew
 from judge import evaluate_output
+from image_generator import generate_marketing_image
 
 st.set_page_config(
     page_title="Product Launch Planner",
@@ -55,6 +56,21 @@ if "result" in st.session_state:
     st.markdown(str(st.session_state.result))
     
     st.markdown("---")
+    st.header("🎨 Marketing Visual")
+    
+    if st.button("Generate Marketing Image", type="primary"):
+        with st.spinner("Generating your marketing image..."):
+            try:
+                image_data = generate_marketing_image(
+                    str(st.session_state.result),
+                    st.session_state.product_name
+                )
+                if image_data:
+                    st.image(image_data, caption=f"Marketing Visual for {st.session_state.product_name}")
+                else:
+                    st.error("Image generation failed. Please try again.")
+            except Exception as e:
+                st.error(f"Image generation failed: {str(e)}")
     
     st.header("🏆 Quality Evaluation")
     
