@@ -2,6 +2,8 @@ import os
 import base64
 from dotenv import load_dotenv
 import google.generativeai as genai
+from PIL import Image
+import io
 
 load_dotenv()
 
@@ -11,22 +13,25 @@ def generate_marketing_image(visual_description, product_name):
     
     prompt = f"""Create a professional, eye-catching marketing advertisement image for a product called {product_name}.
     
-    Use this visual concept as your guide:
-    {visual_description[:1000]}
-    
     The image should be:
     - Modern and professional
     - Suitable for social media marketing
     - Bold and attention grabbing
     - Clean and minimalist design
+    - Dark background with vibrant accent colors
     - Include the product name prominently
+    - Tech startup aesthetic
+    
+    Visual concept: {visual_description[:500]}
     """
     
-    model = genai.GenerativeModel("gemini-2.0-flash-preview-05-20")
+    model = genai.GenerativeModel("gemini-2.0-flash-preview-image-generation")
     
     response = model.generate_content(
         contents=prompt,
-        generation_config={"response_modalities": ["image", "text"]}
+        generation_config=genai.GenerationConfig(
+            response_modalities=["image", "text"]
+        )
     )
     
     for part in response.candidates[0].content.parts:

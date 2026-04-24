@@ -4,3 +4,4 @@ tavily-python
 python-dotenv
 google-generativeai
 litellm
+Pillow
