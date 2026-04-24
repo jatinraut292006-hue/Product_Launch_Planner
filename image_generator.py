@@ -2,7 +2,6 @@ import os
 import base64
 from dotenv import load_dotenv
 from google import genai
-from google.genai import types
 
 load_dotenv()
 
@@ -24,16 +23,16 @@ def generate_marketing_image(visual_description, product_name):
     Visual concept: {visual_description[:500]}
     """
     
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-preview-image-generation",
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_modalities=["image", "text"]
+    response = client.models.generate_images(
+        model="imagen-3.0-generate-002",
+        prompt=prompt,
+        config=genai.types.GenerateImagesConfig(
+            number_of_images=1,
+            aspect_ratio="1:1",
         )
     )
     
-    for part in response.candidates[0].content.parts:
-        if hasattr(part, "inline_data") and part.inline_data:
-            return base64.b64decode(part.inline_data.data)
+    for image in response.generated_images:
+        return image.image.image_bytes
     
     return None
