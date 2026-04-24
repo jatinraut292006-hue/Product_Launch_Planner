@@ -3,5 +3,6 @@ streamlit
 tavily-python
 python-dotenv
 google-generativeai
+google-genai
 litellm
 Pillow

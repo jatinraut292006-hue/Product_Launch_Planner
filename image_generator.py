@@ -1,11 +1,12 @@
 import os
 import base64
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 def generate_marketing_image(visual_description, product_name):
     
@@ -23,11 +24,12 @@ def generate_marketing_image(visual_description, product_name):
     Visual concept: {visual_description[:500]}
     """
     
-    model = genai.GenerativeModel("gemini-2.0-flash-preview-image-generation")
-    
-    response = model.generate_content(
+    response = client.models.generate_content(
+        model="gemini-2.5-flash-image",
         contents=prompt,
-        generation_config={"response_modalities": ["image", "text"]}
+        config=types.GenerateContentConfig(
+            response_modalities=["image", "text"]
+        )
     )
     
     for part in response.candidates[0].content.parts:
