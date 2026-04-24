@@ -25,7 +25,7 @@ def generate_marketing_image(visual_description, product_name):
     """
     
     response = client.models.generate_content(
-        model="gemini-2.5-flash-image",
+        model="gemini-2.0-flash-preview-image-generation",
         contents=prompt,
         config=types.GenerateContentConfig(
             response_modalities=["image", "text"]
@@ -34,7 +34,6 @@ def generate_marketing_image(visual_description, product_name):
     
     for part in response.candidates[0].content.parts:
         if hasattr(part, "inline_data") and part.inline_data:
-            image_data = base64.b64decode(part.inline_data.data)
-            return image_data
+            return base64.b64decode(part.inline_data.data)
     
     return None
