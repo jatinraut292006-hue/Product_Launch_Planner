@@ -3,8 +3,8 @@
 
 A fully deployed, end-to-end multi-agent AI system that autonomously generates a complete product launch plan from a single user input. Built with CrewAI, Gemini API, and Tavily Search.
 
-**Live Demo:** [Product Launch Planner](https://appuctlaunchplanner-rxsnx4jrdr5bhwv7wjftxz.streamlit.app)
-
+**Public URL:** [Product Launch Planner](https://appuctlaunchplanner-rxsnx4jrdr5bhwv7wjftxz.streamlit.app)
+**Local Host (Pre-Deployment):** http://localhost:8501/
 ---
 
 ## Problem Statement
