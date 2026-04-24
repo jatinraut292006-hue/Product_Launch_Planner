@@ -1,8 +1,6 @@
 crewai
-crewai-tools
 streamlit
 tavily-python
 python-dotenv
 google-generativeai
 litellm
-tiktoken==0.7.0
