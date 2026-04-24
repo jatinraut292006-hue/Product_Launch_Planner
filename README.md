@@ -122,50 +122,6 @@ product-launch-planner/
 
 ---
 
-Setup & Installation
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/24bhosalea-sketch/Product_Launch_Planner.git
-cd Product_Launch_Planner
-```
-
-2. Create a virtual environment
-
-```bash
-python -m venv venv
-venv\Scripts\activate        # Windows
-source venv/bin/activate     # Mac/Linux
-```
-
-3. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-4. Set up environment variables
-
-Create a `.env` file in the root directory:
-
-```
-TAVILY_API_KEY=your_tavily_api_key_here
-GEMINI_API_KEY=your_gemini_api_key_here
-```
-
-Get your API keys:
-- Tavily API Key: https://tavily.com
-- Gemini API Key: https://aistudio.google.com
-
-5. Run the app
-
-```bash
-streamlit run app.py
-```
-
----
-
 How to Use
 
 1. Enter your **Product Name**
