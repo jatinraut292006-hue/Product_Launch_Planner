@@ -22,7 +22,7 @@ def generate_marketing_image(visual_description, product_name):
     - Include the product name prominently
     """
     
-    model = genai.GenerativeModel("gemini-2.5-flash-preview-05-20")
+    model = genai.GenerativeModel("gemini-2.0-flash-preview-05-20")
     
     response = model.generate_content(
         contents=prompt,

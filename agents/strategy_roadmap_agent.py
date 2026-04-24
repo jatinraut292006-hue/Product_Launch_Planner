@@ -10,7 +10,7 @@ def create_strategy_roadmap_agent():
         assign realistic timelines and milestones to each phase. You are structured, 
         clear, and always produce plans that teams can immediately act on.""",
         tools=[],
-        llm="gemini/gemini-2.5-flash",
+        llm="gemini/gemini-2.0-flash",
         verbose=True,
         allow_delegation=False
     )

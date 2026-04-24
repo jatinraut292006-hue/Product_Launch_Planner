@@ -12,7 +12,7 @@ def create_advertising_visual_agent():
         describe and generate visuals that are ready to use in ads, social media, 
         and campaigns.""",
         tools=[],
-        llm="gemini/gemini-2.5-flash",
+        llm="gemini/gemini-2.0-flash",
         verbose=True,
         allow_delegation=False
     )
