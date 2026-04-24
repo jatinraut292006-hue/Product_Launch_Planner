@@ -26,7 +26,7 @@ def create_market_research_agent():
         in identifying market opportunities. You are thorough, data-driven, and always 
         back your findings with real information from the web.""",
         tools=[tavily_tool],
-        llm="gemini/gemini-2.0-flash",
+        llm="gemini/gemini-2.5-flash-preview-04-17",
         verbose=True,
         allow_delegation=False
     )

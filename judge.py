@@ -8,7 +8,7 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def evaluate_output(product_name, target_market, crew_output):
 
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    model = genai.GenerativeModel("gemini-2.5-flash-preview-04-17")
 
     evaluation_prompt = f"""You are an expert evaluator assessing the quality of an 
     AI-generated product launch plan. 
