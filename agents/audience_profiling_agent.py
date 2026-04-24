@@ -9,8 +9,7 @@ def create_audience_profiling_agent():
         what drives people to buy products. You use market research data to craft 
         precise audience profiles that marketing teams can act on directly.""",
         tools=[],
-        llm="groq/llama-3.1-8b-instant",
+        llm="gemini/gemini-2.5-flash",
         verbose=True,
-        allow_delegation=False,
-        max_rpm=3,
+        allow_delegation=False
     )

@@ -3,3 +3,7 @@ crewai-tools
 streamlit
 tavily-python
 python-dotenv
+google-generativeai
+litellm
+groq
+ollama

@@ -1,12 +1,14 @@
 import os
-from groq import Groq
 from dotenv import load_dotenv
+import google.generativeai as genai
 
 load_dotenv()
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def evaluate_output(product_name, target_market, crew_output):
+
+    model = genai.GenerativeModel("gemini-2.5-flash")
 
     evaluation_prompt = f"""You are an expert evaluator assessing the quality of an 
     AI-generated product launch plan. 
@@ -76,14 +78,5 @@ def evaluate_output(product_name, target_market, crew_output):
     SUGGESTIONS FOR IMPROVEMENT:
     List 3 specific things that could make this plan better."""
 
-    response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
-        messages=[
-            {
-                "role": "user",
-                "content": evaluation_prompt
-            }
-        ]
-    )
-
-    return response.choices[0].message.content
+    response = model.generate_content(evaluation_prompt)
+    return response.text

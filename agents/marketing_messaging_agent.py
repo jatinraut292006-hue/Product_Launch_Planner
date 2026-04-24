@@ -11,8 +11,7 @@ def create_marketing_messaging_agent():
         only compelling but also discoverable and perfectly timed. Every word you 
         write serves a purpose — to attract, engage, and convert the right audience.""",
         tools=[],
-        llm="groq/llama-3.1-8b-instant",
+        llm="gemini/gemini-2.5-flash",
         verbose=True,
-        allow_delegation=False,
-        max_rpm=3,
+        allow_delegation=False
     )

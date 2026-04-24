@@ -12,7 +12,6 @@ st.title("🚀 Product Launch Planner")
 st.subheader("AI-Powered Multi-Agent Launch Planning System")
 st.markdown("---")
 
-# Input Section
 st.header("Tell us about your product")
 
 product_name = st.text_input(
@@ -33,14 +32,12 @@ target_market = st.text_input(
 
 st.markdown("---")
 
-# Run Button
 if st.button("🚀 Generate Launch Plan", type="primary"):
     
     if not product_name or not product_description or not target_market:
         st.error("Please fill in all three fields before generating.")
     
     else:
-        # Run the crew
         with st.spinner("Agents are working on your launch plan. This may take a few minutes..."):
             try:
                 result = run_crew(product_name, product_description, target_market)
@@ -51,7 +48,6 @@ if st.button("🚀 Generate Launch Plan", type="primary"):
             except Exception as e:
                 st.error(f"Something went wrong: {str(e)}")
 
-# Display Results
 if "result" in st.session_state:
     
     st.markdown("---")
@@ -60,7 +56,6 @@ if "result" in st.session_state:
     
     st.markdown("---")
     
-    # LLM as Judge Section
     st.header("🏆 Quality Evaluation")
     
     if st.button("Evaluate Launch Plan Quality", type="secondary"):

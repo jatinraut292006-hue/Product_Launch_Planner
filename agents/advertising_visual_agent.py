@@ -12,8 +12,7 @@ def create_advertising_visual_agent():
         describe and generate visuals that are ready to use in ads, social media, 
         and campaigns.""",
         tools=[],
-        llm="groq/llama-3.1-8b-instant",
+        llm="gemini/gemini-2.5-flash",
         verbose=True,
-        allow_delegation=False,
-        max_rpm=3,
+        allow_delegation=False
     )

@@ -1,8 +1,8 @@
 import os
 from dotenv import load_dotenv
-import time
+
 load_dotenv()
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+os.environ["GEMINI_API_KEY"] = os.getenv("GEMINI_API_KEY")
 
 from crewai import Crew, Process
 from agents.market_research_agent import create_market_research_agent
@@ -21,7 +21,6 @@ from tasks.visual_task import create_visual_task
 
 def run_crew(product_name, product_description, target_market):
 
-    # Create agents
     market_research_agent = create_market_research_agent()
     audience_profiling_agent = create_audience_profiling_agent()
     seo_agent = create_seo_agent()
@@ -29,7 +28,6 @@ def run_crew(product_name, product_description, target_market):
     marketing_messaging_agent = create_marketing_messaging_agent()
     advertising_visual_agent = create_advertising_visual_agent()
 
-    # Create tasks
     research_task = create_research_task(
         market_research_agent, product_name, product_description, target_market
     )
@@ -49,14 +47,12 @@ def run_crew(product_name, product_description, target_market):
         advertising_visual_agent, product_name, product_description, target_market
     )
 
-    # Connect context
     audience_task.context = [research_task]
     seo_task.context = [research_task, audience_task]
     strategy_task.context = [research_task, audience_task, seo_task]
     marketing_task.context = [research_task, audience_task, seo_task, strategy_task]
     visual_task.context = [audience_task, marketing_task]
 
-    # Build the crew
     crew = Crew(
         agents=[
             market_research_agent,
@@ -79,7 +75,6 @@ def run_crew(product_name, product_description, target_market):
     )
 
     crew.kickoff()
-    time.sleep(10)
 
     full_output = ""
     for task in crew.tasks:
